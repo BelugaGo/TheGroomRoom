@@ -215,8 +215,6 @@ const tomorrow = dayjs().add(1, 'day');
         
         <FormTextField label='First Name' required type='text' name='fName' error={formErrors.fName} value={formData.fName} onChange={handleInputChange} />
         <FormTextField label='Last Name'  required type='text' name='lName' error={formErrors.lName} value={formData.lName} onChange={handleInputChange} />
-      
-
         <FormTextField className='resize' label='Email' required type='email' name='email' error={formErrors.email} value={formData.email} onChange={handleInputChange}/>
         <FormTextField className='resize' label='Phone' required type='tel' name='phone' error={formErrors.phone} value={formData.phone} onChange={handleInputChange} />
 
