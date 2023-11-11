@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { ServicesContainer, ServicesWrapper, ServicesCard, CardImg, CardInfo, CardTitle, CardDescription, CardButtton, Video, ServicesGrid, ServicesHeader, ShareSpan, SocialGroup, SocialButton, ButtonS, ServiceIntro } from './ServicesElement'
 import PetGroomBg from '../../Images/PetGroomBg3.mp4';
 import Bath from '../../Images/Bath.jpg';
@@ -21,6 +21,34 @@ import { Link } from 'react-router-dom';
 
 
 function Services() {
+
+  const videoRef = useRef();
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5, // Adjust as needed
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          videoRef.current.load();
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+    observer.observe(videoRef.current);
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
 
 const petServices = [
      
@@ -83,7 +111,8 @@ const speedDialSocial = [
 
   return (
    <ServicesContainer maxWidth disableGutters id='services'>
-    <Video src={PetGroomBg} loop autoPlay muted loading='lazy' />
+
+    {window.innerWidth < 480 ? null : <Video ref={videoRef} src={PetGroomBg} loop autoPlay muted />}
     <ServicesHeader>Our Services</ServicesHeader>
     <ServiceIntro>Welcome to our pet grooming services! At The Groom Room, we understand that your furry friends deserve the best care. Our dedicated team of experienced groomers is here to pamper and groom your pets with love and expertise. From a refreshing bath to stylish trims, we offer a range of services to keep your pets looking and feeling their best. Discover our offerings and treat your pets to a spa-like experience they'll adore!</ServiceIntro>
 

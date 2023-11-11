@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { HomeContainer, ImageLs, ImageLsItem, HomeWrapper, GroomSvg, ScheduleButton } from './HomeElement.jsx';
 import { gsap } from 'gsap';
 import Groom1 from '../../Images/Groom1.jpg';
@@ -82,10 +82,10 @@ const imageItems = [
     
     <HomeContainer maxWidth disableGutters id='home'>
         <ImageLs variant='quilted' col={4} rowHeight={150}>
-          
+  
       {imageItems.map((item, index) => (
         <ImageLsItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-          <img  ref={(el) => (imageRefs.current[index] = el)}
+          <img ref={(el) => (imageRefs.current[index] = el)}
             {...srcset(item.img, 121, item.rows, item.cols)}
             alt={item.title}
             loading="lazy"
@@ -98,7 +98,6 @@ const imageItems = [
       <GroomSvg className='GroomTitle' src={GroomTitle} loading='lazy'/>
       <Link to='/book'><ScheduleButton className='ScheduleButton'>Book Now!</ScheduleButton></Link>
     </HomeWrapper>
-    
     </HomeContainer>
   )
 }

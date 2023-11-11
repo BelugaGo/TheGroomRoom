@@ -1,6 +1,6 @@
 {
   "name": "thegroomroom",
-   "homepage": "https://BelugaGo.github.io/TheGroomRoom",
+  "homepage": "https://BelugaGo.github.io/TheGroomRoom",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
