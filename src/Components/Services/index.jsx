@@ -22,34 +22,33 @@ import { Link } from 'react-router-dom';
 
 function Services() {
 
-  const videoRef = useRef();
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5, // Adjust as needed
-    };
-
-    const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          videoRef.current.load();
-          observer.unobserve(entry.target);
-        }
+  document.addEventListener("DOMContentLoaded", function() {
+    var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+  
+    if ("IntersectionObserver" in window) {
+      var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(video) {
+          if (video.isIntersecting) {
+            for (var source in video.target.children) {
+              var videoSource = video.target.children[source];
+              if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                videoSource.src = videoSource.dataset.src;
+              }
+            }
+  
+            video.target.load();
+            video.target.classList.remove("lazy");
+            lazyVideoObserver.unobserve(video.target);
+          }
+        });
       });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, options);
-    observer.observe(videoRef.current);
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, []);
-
+  
+      lazyVideos.forEach(function(lazyVideo) {
+        lazyVideoObserver.observe(lazyVideo);
+      });
+    }
+  });
+   
 const petServices = [
      
     { image: `${Bath}`,
@@ -112,7 +111,7 @@ const speedDialSocial = [
   return (
    <ServicesContainer maxWidth disableGutters id='services'>
 
-    {window.innerWidth < 480 ? null : <Video ref={videoRef} src={PetGroomBg} loop autoPlay muted />}
+    {window.innerWidth <= 480 ? null : <Video className='lazy' src={PetGroomBg} autoPlay muted />}
     <ServicesHeader>Our Services</ServicesHeader>
     <ServiceIntro>Welcome to our pet grooming services! At The Groom Room, we understand that your furry friends deserve the best care. Our dedicated team of experienced groomers is here to pamper and groom your pets with love and expertise. From a refreshing bath to stylish trims, we offer a range of services to keep your pets looking and feeling their best. Discover our offerings and treat your pets to a spa-like experience they'll adore!</ServiceIntro>
 
