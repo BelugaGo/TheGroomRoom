@@ -12,6 +12,8 @@ import { Link } from 'react-router-dom';
 function Home() {
 
 const imageRefs = useRef([]);
+const [imagesLoaded, setImagesLoaded] = useState(false);
+
 
 function srcset(image, size) {
   return {
@@ -53,29 +55,33 @@ const imageItems = [
     },
   ];
 
-
   useLayoutEffect(() => {
-    const tl = gsap.timeline( {defaults: {duration: 0.3} });
+    const tl = gsap.timeline({ defaults: { duration: 0.3 } });
 
     let ctx = gsap.context(() => {
+      imageRefs.current.forEach((imageRef) => {
+        imageRef.onload = () => {
+          tl.from(imageRef, {
+            opacity: 0,
+            stagger: 0.2,
+            ease: 'power4.inOut(1, 0.5)',
+            x: -500,
+          });         
+        };
+      });
 
-    imageRefs.current.forEach((imageRef) => {
-      imageRef.onload = () => {
-        tl.from(imageRef, {
-          opacity: 0,
-          stagger: 0.2,
-          ease: 'power4.inOut(1, 0.5)',
-          x: -500
-        })
-      };
+      gsap.from('.GroomTitle,.ScheduleButton', {
+        opacity: 0,
+        duration: 1,
+        ease: 'circ',
+        y: 500,
+        delay: 2.5,
+      });
     });
-    gsap.from('.GroomTitle,.ScheduleButton', {  opacity: 0, duration: 1, ease: 'circ', y: 500, delay: 1.5})
 
-  });
-      return () =>
-      ctx.revert();
-
+    return () => ctx.revert();
   }, []);
+ 
 
 
   return (
@@ -98,6 +104,7 @@ const imageItems = [
       <GroomSvg className='GroomTitle' src={GroomTitle} loading='lazy'/>
       <Link to='/book'><ScheduleButton className='ScheduleButton'>Book Now!</ScheduleButton></Link>
     </HomeWrapper>
+
     </HomeContainer>
   )
 }
