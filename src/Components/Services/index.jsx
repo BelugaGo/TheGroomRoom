@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ServicesContainer, ServicesWrapper, ServicesCard, CardImg, CardInfo, CardTitle, CardDescription, CardButtton, Video, ServicesGrid, ServicesHeader, ShareSpan, SocialGroup, SocialButton, ButtonS, ServiceIntro } from './ServicesElement'
 import PetGroomBg from '../../Images/PetGroomBg3.mp4';
 import Bath from '../../Images/Bath.jpg';

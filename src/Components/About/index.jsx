@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useEffect, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { AboutContainer, AboutWrapper, AboutTitle, AboutStory, Team, TeamTitle, TeamPic, TeamAbout, TeamBox } from './AboutElement.jsx';
 import Sarah from '../../Images/Sarah.svg';
 import Randy  from '../../Images/Randy.svg';

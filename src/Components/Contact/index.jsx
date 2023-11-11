@@ -123,7 +123,7 @@ function Contact() {
 
           <ContactUsText>
                  
-                <ContactUsHeading><LogoHome to='/'><img src={Logo} /> </LogoHome>CONTACT US</ContactUsHeading>
+                <ContactUsHeading><LogoHome to='/'><img src={Logo} alt='' /> </LogoHome>CONTACT US</ContactUsHeading>
                 <ContactUsPhone><MdLocalPhone /> Phone: (555) 555-5555</ContactUsPhone>
                 <ContactUsEmail><MdEmail /> Email: <span style={{ color: '#fd83cc' }}>TheGroomRoomLove@gmail.com</span></ContactUsEmail>
                 <ContactUsAddress><MdGpsFixed /> Address: 1234 Grooming Lane, San Diego, CA 92101 <br /> <span>We Are Open From 9am - 5pm Mon - Fri</span></ContactUsAddress>  

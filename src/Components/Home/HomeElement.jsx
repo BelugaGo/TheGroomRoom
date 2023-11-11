@@ -1,4 +1,4 @@
-import { Container, ImageList, ImageListItem, Box, styled, Typography, Paper, Card, Button } from "@mui/material";
+import { Container, ImageList, ImageListItem, Box, styled, Button } from "@mui/material";
 
 export const HomeContainer = styled(Container)`
 background-color: #5FBFF9;

@@ -205,7 +205,7 @@ const tomorrow = dayjs().add(1, 'day');
 
         <ThemeProvider theme={theme}>
           <BoxTitle>
-          <HomeButton to='/'><img src={Logo} /></HomeButton>
+          <HomeButton to='/'><img src={Logo} alt='' /></HomeButton>
        <BookTitle variant='h3'>Book an Appointment<Typography sx={{  fontWeight: '400'}} variant='h6'>please fill out the form</Typography></BookTitle>
        </BoxTitle>
          </ThemeProvider>
