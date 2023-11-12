@@ -14,7 +14,6 @@ function HomePage() {
     <About />
     <Services />
     <Gallery />
-    <Footer />
     </>
     );
 }

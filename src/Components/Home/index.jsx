@@ -12,8 +12,6 @@ import { Link } from 'react-router-dom';
 function Home() {
 
 const imageRefs = useRef([]);
-const [imagesLoaded, setImagesLoaded] = useState(false);
-
 
 function srcset(image, size) {
   return {

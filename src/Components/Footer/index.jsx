@@ -47,7 +47,7 @@ function Footer() {
 
         </FooterGrid>
 
-        <Typography style={{ color: '#fd83cc', textAlign: 'center', marginTop: '2rem', position: 'relative', top: '30px' }}>The Groom Room &copy; 2023</Typography>
+        <Typography style={{ color: '#fd83cc', position: 'relative', top: '30px', display: 'flex', justifyContent: 'center', width: '100%', fontSize: '15px' }}>The Groom Room &copy; 2023</Typography>
 
      </FooterContainer>
 
