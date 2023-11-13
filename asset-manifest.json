@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TheGroomRoom/static/css/main.9bb6a9fb.css",
-    "main.js": "/TheGroomRoom/static/js/main.2b73ad03.js",
+    "main.js": "/TheGroomRoom/static/js/main.94db3748.js",
     "static/media/PetGroomBg3.mp4": "/TheGroomRoom/static/media/PetGroomBg3.e8a2bad05f055b95f444.mp4",
     "static/media/NewTheGroomRoom.svg": "/TheGroomRoom/static/media/NewTheGroomRoom.6862459907886a771ad103472fbc8baf.svg",
     "static/media/MobileBg.jpg": "/TheGroomRoom/static/media/MobileBg.9d8dffbb455114b02aa1.jpg",
@@ -36,10 +36,10 @@
     "static/media/TheGroomRoom2.svg": "/TheGroomRoom/static/media/TheGroomRoom2.8d98b93da6fc8f65ead45b17d635cb61.svg",
     "index.html": "/TheGroomRoom/index.html",
     "main.9bb6a9fb.css.map": "/TheGroomRoom/static/css/main.9bb6a9fb.css.map",
-    "main.2b73ad03.js.map": "/TheGroomRoom/static/js/main.2b73ad03.js.map"
+    "main.94db3748.js.map": "/TheGroomRoom/static/js/main.94db3748.js.map"
   },
   "entrypoints": [
     "static/css/main.9bb6a9fb.css",
-    "static/js/main.2b73ad03.js"
+    "static/js/main.94db3748.js"
   ]
 }
