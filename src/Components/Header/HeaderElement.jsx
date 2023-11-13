@@ -84,7 +84,7 @@ width: 60px;
 top: 15px;
 left: 15px;
 height: 0px;
-z-index: 2;
+z-index: 10;
 
 @media screen and (min-width: 762px) {
 display: none; 
